@@ -3,6 +3,7 @@ import subprocess
 import pyautogui
 import webbrowser
 import pyttsx3
+from time import sleep, time
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -53,3 +54,21 @@ def openappweb(query):
                 break
         else:
             speak("Application not found in the dictionary.")
+
+
+def closeappweb(query):
+    speak("Closing, sir.")
+
+    if "one tab" in query or "1 tab" in query:
+        pyautogui.hotkey("ctrl", "w")
+    elif "2 tabs" in query or "2 tab" in query:
+        pyautogui.hotkey("ctrl", "w")
+        time.sleep(0.5)
+        pyautogui.hotkey("ctrl", "w")
+        speak("All tabs closed")
+        
+    elif "3 tabs" in query or "2 tab" in query:
+        pyautogui.hotkey("ctrl", "w")
+        time.sleep(0.5)
+        pyautogui.hotkey("ctrl", "w")
+        speak("All tabs closed")
